@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: MyPage(),
+class MainDrawerPage extends StatefulWidget {
+  static Future<void> navigatorPush(BuildContext context) async {
+    return Navigator.push<void>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => MainDrawerPage(),
+      ),
     );
   }
+    @override
+    _State createState() => _State();
 }
-
-class MyPage extends StatelessWidget {
+class _State extends State<MainDrawerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
