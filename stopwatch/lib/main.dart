@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stopwatch/count_up_timer_page.dart';
+import 'package:stopwatch/calendar_page.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 void main() => runApp(MyApp());
@@ -23,7 +23,7 @@ class MainPage extends StatefulWidget {
     return Navigator.push<void>(
       context,
       MaterialPageRoute(
-        builder: (_) => CountUpTimerPage(),
+        builder: (_) => MainPage(),
       ),
     );
   }
@@ -68,6 +68,15 @@ class _State extends State<MainPage> {
       //메뉴바 추가할 곳
       appBar: AppBar(
         title: const Text('Main Page'),
+        actions: <Widget>[
+          new IconButton(
+            icon : new Icon(Icons.calendar_today_outlined),
+            tooltip: "Calender",
+            onPressed: () {
+              CalendarPage.navigatorPush(context);
+            },
+          )
+        ]
       ),
 
       drawer: Drawer(

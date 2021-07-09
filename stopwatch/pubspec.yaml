@@ -33,7 +33,6 @@ dependencies:
 
   stop_watch_timer:
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
