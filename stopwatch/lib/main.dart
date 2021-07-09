@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stopwatch/count_up_timer_page.dart';
+import 'package:stopwatch/calendar_page.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 void main() => runApp(MyApp());
@@ -23,7 +23,7 @@ class MainPage extends StatefulWidget {
     return Navigator.push<void>(
       context,
       MaterialPageRoute(
-        builder: (_) => CountUpTimerPage(),
+        builder: (_) => MainPage(),
       ),
     );
   }
@@ -68,6 +68,65 @@ class _State extends State<MainPage> {
       //메뉴바 추가할 곳
       appBar: AppBar(
         title: const Text('Main Page'),
+        actions: <Widget>[
+          new IconButton(
+            icon : new Icon(Icons.calendar_today_outlined),
+            tooltip: "Calender",
+            onPressed: () {
+              CalendarPage.navigatorPush(context);
+            },
+          )
+        ]
+      ),
+
+      drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text("moon"),
+                accountEmail: Text("dltk789@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage('#'),
+                ),
+                otherAccountsPictures: [
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: AssetImage('#'),
+                  ),
+                ],
+                onDetailsPressed: () => {
+                  print("clicked")
+                },
+                decoration: BoxDecoration(
+                    color: Colors.blue[200],
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(40),
+                        bottomRight: Radius.circular(40))),
+              ),
+              ListTile( // 마이페이지
+                leading: Icon(Icons.home, color: Colors.grey[850],),
+                title: Text("마이페이지"),
+                trailing: Icon(Icons.add),
+              ),
+              ListTile( // 알림설정
+                leading: Icon(Icons.settings, color: Colors.grey[850],),
+                title: Text("알림설정"),
+                trailing: Icon(Icons.add),
+              ),
+              ListTile( // 공지사항
+                leading: Icon(Icons.question_answer, color: Colors.grey[850],),
+                title: Text("공지사항"),
+                trailing: Icon(Icons.add),
+              ),
+              ListTile( // 친구관리
+                leading: Icon(Icons.question_answer, color: Colors.grey[850],),
+                title: Text("친구관리"),
+                trailing: Icon(Icons.add),
+              ),
+            ],
+          )
       ),
       body: Center(
         child: Column(
