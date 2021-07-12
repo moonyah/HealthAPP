@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(MaterialApp(
+    home: Alarm(),
+  ));
+}
+
 class Alarm extends StatefulWidget {
   static Future<void> navigatorPush(BuildContext context) async {
     return Navigator.push<void>(
@@ -15,6 +21,8 @@ class Alarm extends StatefulWidget {
 }
 
 class _State extends State<Alarm> {
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp( //use MaterialApp() widget like this
@@ -30,6 +38,19 @@ class _State extends State<Alarm> {
                 }
             )
         ),
+        body: Center(
+          child: Switch(
+            value: isSwitched,
+            onChanged: (value) {
+              setState(() {
+                isSwitched = value;
+                print(isSwitched);
+              });
+            },
+            activeTrackColor: Colors.yellow,
+            activeColor: Colors.orangeAccent,
+          ),
+        )
       ),
     );
   }
