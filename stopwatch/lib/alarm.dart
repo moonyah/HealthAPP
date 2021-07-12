@@ -21,7 +21,7 @@ class _State extends State<Alarm> {
       title: 'Alarm',
       home: Scaffold(
         appBar: AppBar(
-            title: Text('Alarm'),
+            title: Text('알림 설정'),
             leading:
             new IconButton(
                 icon: new Icon(Icons.arrow_back_ios),
