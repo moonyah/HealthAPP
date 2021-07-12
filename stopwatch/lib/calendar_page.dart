@@ -24,8 +24,8 @@ class _State extends State<CalendarPage> {
       title: 'Calendar',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Health Calendar'),
-          leading:
+            title: Text('Health Calendar'),
+            leading:
             new IconButton(
                 icon: new Icon(Icons.arrow_back_ios),
                 onPressed: () {

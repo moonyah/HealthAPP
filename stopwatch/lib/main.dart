@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:stopwatch/calendar_page.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:stopwatch/mypage.dart';
+import 'package:stopwatch/alarm.dart';
+import 'package:stopwatch/notice.dart';
+import 'package:stopwatch/friend_set.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
+
+  static Future<void> navigatorPush(BuildContext context) async {
+    return Navigator.push<void>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => MyApp(),
+      ),
+    );
+  }
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -43,6 +57,7 @@ class _State extends State<MainPage> {
 
   final _scrollController = ScrollController();
 
+
   @override
   void initState() {
     super.initState();
@@ -67,22 +82,22 @@ class _State extends State<MainPage> {
     return Scaffold(
       //메뉴바 추가할 곳
       appBar: AppBar(
-        title: const Text('Main Page'),
-        actions: <Widget>[
-          new IconButton(
-            icon : new Icon(Icons.calendar_today_outlined),
-            tooltip: "Calender",
-            onPressed: () {
-              CalendarPage.navigatorPush(context);
-            },
-          )
-        ]
+          title: const Text('Main Page'),
+          actions: <Widget>[
+            new IconButton(
+              icon : new Icon(Icons.calendar_today_outlined),
+              tooltip: "Calender",
+              onPressed: () {
+                CalendarPage.navigatorPush(context);
+              },
+            )
+          ]
       ),
 
       drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
-            children: [
+            children: <Widget>[
               UserAccountsDrawerHeader(
                 accountName: Text("moon"),
                 accountEmail: Text("dltk789@gmail.com"),
@@ -90,12 +105,6 @@ class _State extends State<MainPage> {
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('#'),
                 ),
-                otherAccountsPictures: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('#'),
-                  ),
-                ],
                 onDetailsPressed: () => {
                   print("clicked")
                 },
@@ -106,27 +115,63 @@ class _State extends State<MainPage> {
                         bottomRight: Radius.circular(40))),
               ),
               ListTile( // 마이페이지
-                leading: Icon(Icons.home, color: Colors.grey[850],),
-                title: Text("마이페이지"),
-                trailing: Icon(Icons.add),
-              ),
+                leading: Icon(Icons.home,
+                  color: Colors.grey[850],
+                ),
+                title: Text('마이페이지'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyPage()
+                      )
+                    );
+                  },
+               ),
               ListTile( // 알림설정
-                leading: Icon(Icons.settings, color: Colors.grey[850],),
+                leading: Icon(Icons.settings,
+                color: Colors.grey[850],
+                ),
                 title: Text("알림설정"),
-                trailing: Icon(Icons.add),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Alarm()
+                      )
+                  );
+                },
               ),
               ListTile( // 공지사항
-                leading: Icon(Icons.question_answer, color: Colors.grey[850],),
+                leading: Icon(Icons.question_answer,
+                  color: Colors.grey[850],
+                ),
                 title: Text("공지사항"),
-                trailing: Icon(Icons.add),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Notice()
+                      )
+                  );
+                },
               ),
               ListTile( // 친구관리
-                leading: Icon(Icons.question_answer, color: Colors.grey[850],),
+                leading: Icon(Icons.question_answer,
+                  color: Colors.grey[850],
+                ),
                 title: Text("친구관리"),
-                trailing: Icon(Icons.add),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FriendSet()
+                      )
+                  );
+                },
               ),
             ],
-          )
+          ),
       ),
       body: Center(
         child: Column(
@@ -160,10 +205,6 @@ class _State extends State<MainPage> {
                 },
               ),
             ),
-
-
-
-
 
             /// Button
             Padding(
