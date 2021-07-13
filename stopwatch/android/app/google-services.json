@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "187595043577",
+    "project_id": "health-app-3c869",
+    "storage_bucket": "health-app-3c869.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187595043577:android:51541fec1d2fe5cf582828",
+        "android_client_info": {
+          "package_name": "com.example.stopwatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187595043577-smf18vaorl2vf4r0trpaljmc016tqf5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7RRBMx05cvK5qe_oiS217nZ5his26o5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187595043577-smf18vaorl2vf4r0trpaljmc016tqf5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
