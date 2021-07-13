@@ -173,11 +173,23 @@ class _State extends State<MainPage> {
             ],
           ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+          ///mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            ///캐릭터
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 115, horizontal: 150),
+                color: Colors.red[100],
+                child: Text(
+                  "여기는 캐릭터 칸"
+                )
+
+              )
+
+            ),
             /// Display stop watch time
             Padding(
               padding: const EdgeInsets.only(bottom: 0),
@@ -270,10 +282,37 @@ class _State extends State<MainPage> {
 
                 ],
               ),
+            ),
+
+            /// Friends
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 140),
+                color: Colors.blueGrey[50],
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget> [
+                    IconButton(
+                        icon: const Icon(Icons.add),
+                        iconSize: 100,
+                        onPressed: null,
+                      ),
+
+
+                    Text(
+                      "친구를 추가해보세요!",
+                      textAlign: TextAlign.center,
+                    )
+
+                  ]
+                ),
+              ),
             )
           ],
         ),
-      ),
+
     );
   }
 }
