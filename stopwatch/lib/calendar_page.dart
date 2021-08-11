@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-
 class CalendarPage extends StatefulWidget {
   static Future<void> navigatorPush(BuildContext context) async {
     return Navigator.push<void>(
